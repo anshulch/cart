@@ -1,10 +1,19 @@
 $link--color : orange;
 $brand--color: #2874f0;
 $white: #fff;
+$grey: #ccc;
+
+// reset code
+ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: auto;
+}
 
 header{
   background-color: $brand--color;
   padding:10px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .1);
   .fa--white{
     color: $white;
   }
@@ -17,6 +26,23 @@ header{
   }
   .fa__star{
     color: $link--color;
+  }
+}
+
+.filters{
+  display: flex;
+  justify-content:space-around;
+  border-bottom: 1px solid $grey;
+  li{ 
+    flex-basis: 50%; 
+    text-align: center;
+    padding: 10px 0;
+    &:first-child{
+      border-right:1px solid $grey;
+    }
+    .svg-inline--fa{
+      padding-right: 5px;
+    }
   }
 }
 
