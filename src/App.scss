@@ -1,7 +1,9 @@
-$link--color : orange;
+$brand--color-secondry : orange;
 $brand--color: #2874f0;
 $white: #fff;
+$black: #000;
 $grey: #ccc;
+$success: green;
 
 // reset code
 ul { 
@@ -25,7 +27,7 @@ header{
     justify-content: space-between;
   }
   .fa__star{
-    color: $link--color;
+    color: $brand--color-secondry;
   }
 }
 
@@ -43,6 +45,46 @@ header{
     .svg-inline--fa{
       padding-right: 5px;
     }
+  }
+}
+
+.product__wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  & > div{
+    flex-basis: 50%;
+    padding: 10px;
+    border-bottom: 1px solid $grey;
+    box-sizing: border-box;
+    .offers{
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      & span:first-child{ padding-right:8px}
+      & span:nth-child(2){ 
+        text-decoration:line-through;
+        color: $grey ;
+      }
+    }
+    img{
+      width: 100%;
+    }
+  }
+  & > div:nth-child(odd){
+    border-right: 1px solid $grey;
+  }
+  .discount{
+    color: $success
+  }
+  button{
+    color: $black;
+    background-color: $brand--color-secondry;
+    border: 1px solid $brand--color-secondry;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
   }
 }
 
