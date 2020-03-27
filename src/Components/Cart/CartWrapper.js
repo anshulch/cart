@@ -28,4 +28,11 @@ const mapStateToProps = state =>{
         selectedItems: state.selectedItems
     }
 }
-export default connect(mapStateToProps)(CartWrapper);
+const mapDispatchToProps = dispatch => {
+    return{
+        deleteItem: (e) =>{
+            dispatch({ type: "DELETE_ITEM", elem: e.target.getAttribute("data-id") })
+        },
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CartWrapper);

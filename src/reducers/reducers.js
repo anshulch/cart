@@ -84,10 +84,18 @@ const reducer = (state = initialState, action) => {
         }
     }
     if(action.type === "UPDATE_CART"){
-        console.log(action.elem)
+        // console.log(action.elem)
         return{
             ...state,
             selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
+        }
+    }
+    if(action.type === "DELETE_ITEM"){
+        // console.log(action.elem)
+        return{
+            ...state,
+            selectedItems: state.selectedItems.filter(el => el.id !== parseInt(action.elem))
+
         }
     }
     return state;

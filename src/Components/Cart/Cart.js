@@ -21,7 +21,7 @@ const cart = (props) => {
                 <input value="1" disabled/>
                 <span>+</span>
             </div>
-            <div className="remove--item upper--case">Remove</div>
+            <div className="remove--item upper--case" onClick={props.itemDeleteHandler} data-id={props.prodId}>Remove</div>
             </div>
         </div>
     )
