@@ -18,7 +18,7 @@ const cart = () => {
             </div>
             <div className="item-qty">
                 <span>-</span>
-                <input value="1"/>
+                <input value="1" disabled/>
                 <span>+</span>
             </div>
             <div className="remove--item upper--case">Remove</div>

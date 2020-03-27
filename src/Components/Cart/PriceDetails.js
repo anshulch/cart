@@ -4,7 +4,7 @@ import { faRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
 const PriceDetails = () =>{
     return(
-        <section class="price__details border--wrap">
+        <section className="price__details border--wrap">
             <div className="item__name upper--case">Price details</div>
             <ul className="details--row">
                 <li>Price (1 item)</li>
