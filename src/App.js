@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Filter from './Components/Filters';
 import ProductWrapper from './Components/ProductWrapper';
 import CartWrapper from './Components/Cart/CartWrapper';
+import PriceDetails from './Components/Cart/PriceDetails';
 import Footer from './Components/Footer';
 
 
@@ -16,6 +17,7 @@ function App() {
       <Header/>
       <Filter/>
       <ProductWrapper/>
+      <PriceDetails/>
       <CartWrapper/>
       <Footer/>
     </div>

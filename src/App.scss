@@ -15,6 +15,9 @@ ul {
 .upper--case{
   text-transform: uppercase;
 }
+.border--wrap{
+  border:1px solid $black
+}
 
 header{
   background-color: $brand--color;
@@ -102,6 +105,7 @@ header{
   img{
     width:100%;
     max-width: 120px;
+    height:120px;
     margin-right: 10px;
   }
   .item-qty span{
@@ -123,6 +127,29 @@ header{
   .remove--item{
     margin-top: 10px;
     font-weight: bold;
+  }
+}
+.price__details{
+  margin: 10px;
+  padding: 10px 0;
+  .item__name{
+    padding-bottom:10px;
+    border-bottom:1px solid $grey;
+    font-weight: bold;
+  }
+  .total__payable{ 
+    border-top: 1px solid $grey;
+    padding-top: 5px;
+    font-weight: bold;
+  }
+  .details--row{
+    display: flex;
+    justify-content: space-between;
+    padding:10px 0
+  }
+  .item__name, .details--row{
+    padding-left: 10px;
+    padding-right:10px;
   }
 }
 
