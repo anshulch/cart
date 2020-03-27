@@ -12,7 +12,7 @@ const product = () => {
                     <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> 319</span>
                     <span>900</span>
                 </div>
-                <div class="discount">64%</div>
+                <div className="discount">64%</div>
             </div>
             <button>Add to Cart</button>
         </div>

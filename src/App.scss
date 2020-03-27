@@ -12,6 +12,10 @@ ul {
   margin: auto;
 }
 
+.upper--case{
+  text-transform: uppercase;
+}
+
 header{
   background-color: $brand--color;
   padding:10px;
@@ -38,6 +42,7 @@ header{
   li{ 
     flex-basis: 50%; 
     text-align: center;
+    box-sizing: border-box;
     padding: 10px 0;
     &:first-child{
       border-right:1px solid $grey;
@@ -51,30 +56,18 @@ header{
 .product__wrapper{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
   & > div{
     flex-basis: 50%;
     padding: 10px;
     border-bottom: 1px solid $grey;
     box-sizing: border-box;
-    .offers{
-      padding: 10px 0;
-      display: flex;
-      justify-content: space-between;
-      & span:first-child{ padding-right:8px}
-      & span:nth-child(2){ 
-        text-decoration:line-through;
-        color: $grey ;
-      }
-    }
     img{
       width: 100%;
     }
   }
   & > div:nth-child(odd){
     border-right: 1px solid $grey;
-  }
-  .discount{
-    color: $success
   }
   button{
     color: $black;
@@ -84,6 +77,51 @@ header{
     padding: 10px;
     display: block;
     margin: 0 auto;
+    font-weight: bold;
+  }
+}
+.offers{
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  & span:first-child{ padding-right:8px}
+  & span:nth-child(2){ 
+    text-decoration:line-through;
+    color: $grey ;
+  }
+  .discount{
+    color: $success
+  }
+}
+
+.selected__item{
+  display: flex;
+  border:1px solid #000;
+  margin: 10px;
+  padding: 10px;
+  img{
+    width:100%;
+    max-width: 120px;
+    margin-right: 10px;
+  }
+  .item-qty span{
+    border:1px solid $black;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
+    line-height: 25px;
+  }
+  .discount{ margin-left: 10px;}
+  input{
+    border:1px solid $black;
+    width:30px;
+    margin: 0 5px;
+    text-align: center;
+  }
+  .remove--item{
+    margin-top: 10px;
     font-weight: bold;
   }
 }

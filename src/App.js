@@ -5,6 +5,7 @@ import './App.scss';
 import Header from './Components/Header';
 import Filter from './Components/Filters';
 import ProductWrapper from './Components/ProductWrapper';
+import CartWrapper from './Components/Cart/CartWrapper';
 import Footer from './Components/Footer';
 
 
@@ -15,6 +16,7 @@ function App() {
       <Header/>
       <Filter/>
       <ProductWrapper/>
+      <CartWrapper/>
       <Footer/>
     </div>
   );
