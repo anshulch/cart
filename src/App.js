@@ -1,4 +1,6 @@
 import React from 'react';
+import {useSelector, useDispatch} from "react-redux";
+
 import './App.scss';
 
 // Custom Components import
@@ -9,16 +11,16 @@ import CartWrapper from './Components/Cart/CartWrapper';
 import PriceDetails from './Components/Cart/PriceDetails';
 import Footer from './Components/Footer';
 
-
-
 function App() {
+  const count = useSelector(state => state.selectedItems.length)
+
   return (
     <div className="App">
-      <Header/>
+      <Header count={count}/>
       <Filter/>
       <ProductWrapper/>
-      <PriceDetails/>
       <CartWrapper/>
+      <PriceDetails/>
       <Footer/>
     </div>
   );

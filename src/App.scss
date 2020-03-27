@@ -4,6 +4,7 @@ $white: #fff;
 $black: #000;
 $grey: #ccc;
 $success: green;
+$error: red;
 
 // reset code
 ul { 
@@ -17,6 +18,9 @@ ul {
 }
 .border--wrap{
   border:1px solid $black
+}
+.text--center{
+  text-align: center;
 }
 
 header{
@@ -35,6 +39,20 @@ header{
   }
   .fa__star{
     color: $brand--color-secondry;
+  }
+  .counter{
+    position: absolute;
+    color:$white;
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 15px;
+    font-weight: bold;
+    font-size: 12px;
+    top:2px;
+    right: 2px;
   }
 }
 
@@ -60,7 +78,7 @@ header{
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 50px;
-  & > div{
+  & > .prod__Wrap{
     flex-basis: 50%;
     padding: 10px;
     border-bottom: 1px solid $grey;
@@ -69,7 +87,7 @@ header{
       width: 100%;
     }
   }
-  & > div:nth-child(odd){
+  & > .prod__Wrap:nth-child(odd){
     border-right: 1px solid $grey;
   }
   button{
@@ -81,6 +99,11 @@ header{
     display: block;
     margin: 0 auto;
     font-weight: bold;
+  }
+  .error__msg{
+    margin-top: 20px;
+    flex-basis: 100%;
+    .fa-bug{ color: $error; font-size: 24px;}
   }
 }
 .offers{

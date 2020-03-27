@@ -4,7 +4,7 @@ import { faRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
 const product = (props) => {
     return(
-        <div>
+        <div className="prod__Wrap">
             {/* <img src="http://lorempixel.com/500/600/technics/" alt="img" /> */}
             <img src="https://fakeimg.pl/300/" alt="fake"/>
             <div>{props.prodName}</div>

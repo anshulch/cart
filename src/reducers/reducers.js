@@ -65,7 +65,9 @@ const initialState = {
     //       "img_url": "http://lorempixel.com/500/600/technics/"
     //     }
     //   ]
-    products:[]
+    products:[],
+    selectedItems:[],
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -75,9 +77,21 @@ const reducer = (state = initialState, action) => {
             products:action.payload.filter(el => el != null),
         }
     }
+    if(action.type === "ERROR_LOADING_DATA"){
+        return{
+            ...state,
+            error: action.dataState
+        }
+    }
     if(action.type === "UPDATE_CART"){
         console.log(action.elem)
+        return{
+            ...state,
+            selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
+        }
     }
     return state;
 }
 export default reducer;
+
+// tobeEdited: state.products.filter(el => el.pId === action.elem),

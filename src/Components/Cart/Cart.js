@@ -2,19 +2,19 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
-const cart = () => {
+const cart = (props) => {
     return(
         <div className="selected__item">
             {/* <img src="http://lorempixel.com/500/600/technics/" alt="img" /> */}
             <img src="https://fakeimg.pl/300/" alt="fake"/>
             <div className="item__details">
-                <div>Item 1</div>
+                <div>{props.prodName}</div>
                 <div className="offers">
                 <div>
-                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> 319</span>
-                    <span>900</span>
+                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {props.prodPrice}</span>
+                    <span>{props.prodPrice * props.discount / 100}</span>
                 </div>
-                <div className="discount">64%</div>
+                <div className="discount">{props.discount} % off</div>
             </div>
             <div className="item-qty">
                 <span>-</span>
