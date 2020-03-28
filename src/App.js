@@ -23,12 +23,12 @@ function App() {
       <div className="App">
         <Header count={count} />
         <Filter/>
-        <Route path="/" exact component={ProductWrapper} />
-        <Route path="/cart" exact component={CartWrapper}/>
+        <Route path="/cart" exact component={ProductWrapper} />
+        <Route path="/cart-items" exact component={CartWrapper}/>
 
         {/* <ProductWrapper/>
         <CartWrapper/> */}
-        <Route path="/cart" exact component={() => 
+        <Route path="/cart-items" exact component={() => 
         <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>} />
 
         {/* <Route

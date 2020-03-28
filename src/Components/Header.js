@@ -6,10 +6,10 @@ import { faStar, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-ic
 const header = (props) => {
     return(
         <header>
-            <Link to="/"><FontAwesomeIcon className="fa__star" icon={faStar} />{props.total}</Link>
+            <Link to="/cart"><FontAwesomeIcon className="fa__star" icon={faStar} />{props.total}</Link>
             <aside>
                 <FontAwesomeIcon className="fa--white" icon={faSearch} />
-                <Link to="/cart"><FontAwesomeIcon className="fa--white" icon={faShoppingCart} /></Link>
+                <Link to="/cart-items"><FontAwesomeIcon className="fa--white" icon={faShoppingCart} /></Link>
                 <div className="counter">{props.count}</div>
             </aside>
         </header>
