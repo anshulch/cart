@@ -22,18 +22,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header count={count} />
-        <Filter/>
+        <Route path="/cart" exact component={Filter}/>
         <Route path="/cart" exact component={ProductWrapper} />
-        <Route path="/cart-items" exact component={CartWrapper}/>
-
-        {/* <ProductWrapper/>
-        <CartWrapper/> */}
-        <Route path="/cart-items" exact component={() => 
-        <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>} />
-
-        {/* <Route
-  path='/dashboard'
-  component={() => <Dashboard isAuthed={true} />} */}
+        <div className="cart__wrapper">
+          <Route path="/cart-items" exact component={CartWrapper}/>
+          <Route path="/cart-items" exact component={() => 
+          <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>} />
+        </div>
         <Footer/>
       </div>
     </BrowserRouter>

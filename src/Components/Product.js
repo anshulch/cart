@@ -6,7 +6,7 @@ const product = (props) => {
     return(
         <div className="prod__Wrap">
             {/* <img src="http://lorempixel.com/500/600/technics/" alt="img" /> */}
-            <img src="https://fakeimg.pl/300/" alt="fake"/>
+            <img src={props.prodImg} alt="fake"/>
             <div>{props.prodName}</div>
             <div className="offers">
                 <div>

@@ -5,8 +5,8 @@ import { faSort, faFilter } from '@fortawesome/free-solid-svg-icons';
 const filter = () => {
     return(
         <ul className="filters">
-            <li><FontAwesomeIcon className="" icon={faSort} />Sort</li>
-            <li><FontAwesomeIcon className="" icon={faFilter} />Filter</li>
+            <li><FontAwesomeIcon className="display--none" icon={faSort} />Sort</li>
+            <li><FontAwesomeIcon className="display--none" icon={faFilter} />Filter</li>
         </ul>
     )
 }

@@ -18,6 +18,7 @@ class ProductWrapper extends Component{
                     <Product key={item.id}
                         itemClickHandler={this.props.addToCart}
                         prodName={item.name}
+                        prodImg={item.img_url}
                         prodId={item.id}
                         prodPrice={item.price}
                         discount={item.discount}

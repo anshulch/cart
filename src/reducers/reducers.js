@@ -73,8 +73,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    if(action.type === "GET_DATAA"){
-        // state.products.productQty = 0;
+    if(action.type === "GET_DATAA" && state.selectedItems.length === 0){
         return{
             ...state,
             products:action.payload.filter(el => el != null)
@@ -93,10 +92,13 @@ const reducer = (state = initialState, action) => {
         let sItems = state.selectedItems.find(el => el.id === parseInt(action.elem));
         if(sItems){
             console.log('if block')
+            // console.log(addedProduct.productQty)
             addedProduct.productQty += 1;
+            console.log(addedProduct.productQty)
 
             return {
                 ...state,
+                // selectedItems: [...state.selectedItems, addedProduct],
                 // selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
                 total: state.total + addedProduct.price,
                 totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100)
