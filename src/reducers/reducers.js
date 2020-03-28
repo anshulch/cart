@@ -67,14 +67,17 @@ const initialState = {
     //   ]
     products:[],
     selectedItems:[],
-    error: null
+    error: null,
+    total: 0,
+    totalDiscount:0
 }
 
 const reducer = (state = initialState, action) => {
     if(action.type === "GET_DATAA"){
+        // state.products.productQty = 0;
         return{
             ...state,
-            products:action.payload.filter(el => el != null),
+            products:action.payload.filter(el => el != null)
         }
     }
     if(action.type === "ERROR_LOADING_DATA"){
@@ -85,21 +88,62 @@ const reducer = (state = initialState, action) => {
     }
     if(action.type === "UPDATE_CART"){
         // console.log(action.elem)
+        let addedProduct = state.products.find(el => el.id === parseInt(action.elem));
+
+        let sItems = state.selectedItems.find(el => el.id === parseInt(action.elem));
+        if(sItems){
+            console.log('if block')
+            addedProduct.productQty += 1;
+
+            return {
+                ...state,
+                selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+                total: state.total + addedProduct.price,
+                totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100)
+            }
+        }else{
+            console.log('else block')
+            addedProduct.productQty = 1;
+
+            return{
+                ...state,
+                total: state.total + addedProduct.price,
+                totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100),
+                selectedItems: [...state.selectedItems, addedProduct]
+                // selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
+            }
+        }
+    }
+    if(action.type === "QTY_INCREMENT"){
+        console.log(action.elem)
+        let addedProduct = state.products.find(el => el.id === parseInt(action.elem));
+        addedProduct.productQty += 1;
+        
         return{
             ...state,
-            selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
+            selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+            total: state.total + addedProduct.price,
+            totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100)
+        }
+    }
+    if(action.type === "QTY_DECREMENT"){
+        let addedProduct = state.products.find(el => el.id === parseInt(action.elem));
+        addedProduct.productQty -= 1;
+        return{
+            ...state,
+            selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+            total: state.total - addedProduct.price,
+            totalDiscount: state.totalDiscount - ((addedProduct.price*addedProduct.discount)/100)
         }
     }
     if(action.type === "DELETE_ITEM"){
-        // console.log(action.elem)
         return{
             ...state,
-            selectedItems: state.selectedItems.filter(el => el.id !== parseInt(action.elem))
-
+            selectedItems: state.selectedItems.filter(el => el.id !== parseInt(action.elem)),
+            total: state.total - (action.elemQty * action.elemPrice),
+            totalDiscount: state.totalDiscount - (action.elemPrice*action.elemDiscount/100)*action.elemQty
         }
     }
     return state;
 }
 export default reducer;
-
-// tobeEdited: state.products.filter(el => el.pId === action.elem),

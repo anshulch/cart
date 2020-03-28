@@ -11,17 +11,20 @@ const cart = (props) => {
                 <div>{props.prodName}</div>
                 <div className="offers">
                 <div>
-                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {props.prodPrice}</span>
-                    <span>{props.prodPrice * props.discount / 100}</span>
+                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {Math.round(props.prodPrice - (props.prodPrice * props.discount / 100))}</span>
+                    <span>{props.prodPrice}</span>
                 </div>
                 <div className="discount">{props.discount} % off</div>
             </div>
             <div className="item-qty">
-                <span>-</span>
-                <input value="1" disabled/>
-                <span>+</span>
+                { props.qty > 1
+                ?<span onClick={props.decrementHandler} data-id={props.prodId}>-</span>
+                :<span className="diable__action">-</span>
+                }
+                <input value={props.qty} disabled/>
+                <span onClick={props.incrementHandler} data-id={props.prodId}>+</span>
             </div>
-            <div className="remove--item upper--case" onClick={props.itemDeleteHandler} data-id={props.prodId}>Remove</div>
+            <div className="remove--item upper--case" onClick={props.itemDeleteHandler} data-id={props.prodId} data-qty={props.qty} data-price={props.prodPrice} data-discount={props.discount}>Remove</div>
             </div>
         </div>
     )

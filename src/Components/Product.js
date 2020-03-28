@@ -10,10 +10,10 @@ const product = (props) => {
             <div>{props.prodName}</div>
             <div className="offers">
                 <div>
-                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {props.prodPrice}</span>
+                    <span><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {Math.round(props.prodPrice - (props.prodPrice * props.discount / 100))}</span>
                     {
                     props.discount
-                    ?<span>{props.prodPrice * props.discount / 100}</span>
+                    ?<span>{props.prodPrice}</span>
                     :null
                     }
                 </div>

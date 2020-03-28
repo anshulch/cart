@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 import './App.scss';
 
@@ -12,15 +12,17 @@ import PriceDetails from './Components/Cart/PriceDetails';
 import Footer from './Components/Footer';
 
 function App() {
-  const count = useSelector(state => state.selectedItems.length)
+  const count = useSelector(state => state.selectedItems.length);
+  const total = useSelector(state => state.total);
+  const totalDiscount = useSelector(state => state.totalDiscount);
 
   return (
     <div className="App">
-      <Header count={count}/>
+      <Header count={count} />
       <Filter/>
       <ProductWrapper/>
       <CartWrapper/>
-      <PriceDetails/>
+      <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>
       <Footer/>
     </div>
   );
