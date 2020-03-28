@@ -97,7 +97,7 @@ const reducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+                // selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
                 total: state.total + addedProduct.price,
                 totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100)
             }
@@ -109,8 +109,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 total: state.total + addedProduct.price,
                 totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100),
-                selectedItems: [...state.selectedItems, addedProduct]
-                // selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
+                // selectedItems: [...state.selectedItems, addedProduct]
+                selectedItems: state.selectedItems.concat(state.products.filter(el => el.id === parseInt(action.elem)))
             }
         }
     }
@@ -121,7 +121,7 @@ const reducer = (state = initialState, action) => {
         
         return{
             ...state,
-            selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+            // selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
             total: state.total + addedProduct.price,
             totalDiscount: state.totalDiscount + ((addedProduct.price*addedProduct.discount)/100)
         }
@@ -131,7 +131,7 @@ const reducer = (state = initialState, action) => {
         addedProduct.productQty -= 1;
         return{
             ...state,
-            selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
+            // selectedItems: [...state.selectedItems, addedProduct].filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i),
             total: state.total - addedProduct.price,
             totalDiscount: state.totalDiscount - ((addedProduct.price*addedProduct.discount)/100)
         }

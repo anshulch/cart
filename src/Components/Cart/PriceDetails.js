@@ -15,11 +15,11 @@ const PriceDetails = (props) =>{
             </ul>
             <ul className="details--row">
                 <li>Discount</li>
-                <li><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {props.totalDiscount}</li>
+                <li><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {Math.round(props.totalDiscount)}</li>
             </ul>
             <div className="total__payable details--row">
                 <div className="upper--case">Total Payable</div>
-                <div><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {props.total - props.totalDiscount}</div>
+                <div><FontAwesomeIcon className="fa--white" icon={faRupeeSign} /> {Math.round(props.total - props.totalDiscount)}</div>
             </div>
         </section>
     )

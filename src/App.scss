@@ -25,7 +25,7 @@ ul {
 
 header{
   background-color: $brand--color;
-  padding:10px;
+  padding:15px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .1);
   .fa--white{
     color: $white;
@@ -51,8 +51,8 @@ header{
     line-height: 15px;
     font-weight: bold;
     font-size: 12px;
-    top:2px;
-    right: 2px;
+    top:7px;
+    right: 7px;
   }
 }
 
@@ -156,7 +156,7 @@ header{
   }
 }
 .price__details{
-  margin: 10px;
+  margin: 10px 10px 50px;
   padding: 10px 0;
   .item__name{
     padding-bottom:10px;

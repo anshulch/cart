@@ -1,5 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.scss';
 
@@ -17,14 +19,24 @@ function App() {
   const totalDiscount = useSelector(state => state.totalDiscount);
 
   return (
-    <div className="App">
-      <Header count={count} />
-      <Filter/>
-      <ProductWrapper/>
-      <CartWrapper/>
-      <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header count={count} />
+        <Filter/>
+        <Route path="/" exact component={ProductWrapper} />
+        <Route path="/cart" exact component={CartWrapper}/>
+
+        {/* <ProductWrapper/>
+        <CartWrapper/> */}
+        <Route path="/cart" exact component={() => 
+        <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>} />
+
+        {/* <Route
+  path='/dashboard'
+  component={() => <Dashboard isAuthed={true} />} */}
+        <Footer/>
+      </div>
+    </BrowserRouter>
   );
 }
 
