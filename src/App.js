@@ -24,11 +24,14 @@ function App() {
         <Header count={count} />
         <Route path="/cart" exact component={Filter}/>
         <Route path="/cart" exact component={ProductWrapper} />
-        <div className="cart__wrapper">
+        { total
+        ?<div className="cart__wrapper">
           <Route path="/cart-items" exact component={CartWrapper}/>
           <Route path="/cart-items" exact component={() => 
           <PriceDetails count={count} total={total} totalDiscount={totalDiscount}/>} />
         </div>
+        :<Route path="/cart-items" exact render={() => <div className="cart__empty text--center upper--case">Cart is Empty</div>} />
+        }
         <Footer/>
       </div>
     </BrowserRouter>
