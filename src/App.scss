@@ -25,10 +25,11 @@ ul {
 
 header{
   background-color: $brand--color;
-  padding:15px;
+  padding:18px 20px 15px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .1);
   .fa--white{
     color: $white;
+    font-size: 20px;
   }
   display: flex;
   justify-content: space-between;
@@ -39,6 +40,7 @@ header{
   }
   .fa__star{
     color: $brand--color-secondry;
+    font-size: 20px;
   }
   .counter{
     position: absolute;
@@ -56,26 +58,45 @@ header{
   }
   .search__bar{
     display: flex;
-    margin-right:15px;
+    margin-right:30px;
     input{
-      width:0;
+      width:20px;
       transition: width 2s;
       border:none;
       color:$white;
-      background-color: $brand--color;
+      background-color: transparent;
+      position: relative;
+      z-index: 1;
+      // margin-right: 20px;
+      outline: none;
+      border-bottom:1px solid $white;
+      padding-bottom:10px;
+
       &::placeholder{
         color: $white;
       }
+      &:focus{
+        width:200px;
+        // background-color: red;
+        // border-bottom:1px solid $white;
+      }
     }
     .fa-search{
-      order:2;
-      &:hover ~ input{
-        width:200px;
-        border-bottom:1px solid $white;
-      }
+      // order:2;
+      position: absolute;
+      right: 72px;
+      top:17px;
     }
   }
 }
+
+// .search__bar input:before {
+//   font-family: FontAwesome;
+//   top:0;
+//   left:-5px;
+//   padding-right:10px;
+//   content: "\f0a9"; 
+// }
 
 .filters{
   display: flex;

@@ -10,7 +10,7 @@ const header = (props) => {
             <aside>
                 <div className="search__bar">
                     <FontAwesomeIcon className="fa--white" icon={faSearch} />
-                    <input placeholder="Search" />
+                    <input />
                 </div>
                 <Link to="/cart-items"><FontAwesomeIcon className="fa--white" icon={faShoppingCart} /></Link>
                 <div className="counter">{props.count}</div>
