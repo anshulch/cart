@@ -22,6 +22,9 @@ ul {
 .text--center{
   text-align: center;
 }
+.font--bold{
+  font-weight: bold;
+}
 
 header{
   background-color: $brand--color;
@@ -90,14 +93,6 @@ header{
   }
 }
 
-// .search__bar input:before {
-//   font-family: FontAwesome;
-//   top:0;
-//   left:-5px;
-//   padding-right:10px;
-//   content: "\f0a9"; 
-// }
-
 .filters{
   display: flex;
   justify-content:space-around;
@@ -113,6 +108,66 @@ header{
     .svg-inline--fa{
       padding-right: 5px;
     }
+  }
+  .filer__details{
+    position: absolute;
+    margin-top: 20px;
+  }
+  .only--desk--display{
+    display:none
+  }
+  .price--label{
+    margin: 15px 0;
+  }
+  .btn__apply{
+    background-color: $brand--color;
+    color:$white;
+    border:none;
+    border-radius: 15px;
+    padding: 5px 20px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    &:hover{
+      background-color: $brand--color-secondry;
+    }
+  }
+  .slider {
+    -webkit-appearance: none;
+    height: 1px;
+    background: $brand--color;
+    // opacity: 0.7;
+    outline: none;
+    &:before{
+      content:"₹100";
+    }
+    &:after{
+      content:"₹1000";
+    }
+    &:before, &:after{
+      position: relative;
+      top:-18px;
+      color:#444
+    } 
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius:50%;
+    border:1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+  }
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius:50%;
+    border:1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
   }
 }
 
@@ -141,6 +196,13 @@ header{
     display: block;
     margin: 0 auto;
     font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    &:hover{
+      background-color: $brand--color;
+      color:$white;
+      border-color: $brand--color;
+    }
   }
   .error__msg{
     margin-top: 20px;
@@ -192,6 +254,7 @@ header{
   .remove--item{
     margin-top: 10px;
     font-weight: bold;
+    cursor: pointer;
   }
   .diable__action{
     opacity: .4;
@@ -254,7 +317,9 @@ footer{
   }
   .filters{
     justify-content: start;
+    border-bottom:none;
     li{
+      padding-top:20px;
       padding-left: 20px;
       text-align: left !important;
       &:first-child{
@@ -265,6 +330,29 @@ footer{
         border-right: 1px solid $grey
       }
     }
+    .sort__by{
+      padding-left: 2px;
+    }
+    .only--desk--display{
+      display: inline-block;
+    }
+    .filer__details{
+      display: block;
+    }
+    .price__filter{
+      margin-left: 20px;
+      font-size: 13px;
+      color: $brand--color;
+      border-bottom:2px solid $white;
+      padding-bottom: 2px;
+      cursor: pointer;
+      &.active{
+        border-bottom-color: $brand--color;
+      }
+      &:hover{
+        border-color: $brand--color - 80%;
+      }
+    }   
   }
   .cart__wrapper{
     display: flex;
