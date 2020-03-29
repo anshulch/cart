@@ -8,7 +8,10 @@ const header = (props) => {
         <header>
             <Link to="/cart"><FontAwesomeIcon className="fa__star" icon={faStar} />{props.total}</Link>
             <aside>
-                <FontAwesomeIcon className="fa--white" icon={faSearch} />
+                <div className="search__bar">
+                    <FontAwesomeIcon className="fa--white" icon={faSearch} />
+                    <input placeholder="Search" />
+                </div>
                 <Link to="/cart-items"><FontAwesomeIcon className="fa--white" icon={faShoppingCart} /></Link>
                 <div className="counter">{props.count}</div>
             </aside>

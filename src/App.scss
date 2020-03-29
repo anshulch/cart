@@ -33,7 +33,7 @@ header{
   display: flex;
   justify-content: space-between;
   aside{
-    flex-basis: 50px;
+    // flex-basis: 250px;
     display: flex;
     justify-content: space-between;
   }
@@ -53,6 +53,27 @@ header{
     font-size: 12px;
     top:7px;
     right: 7px;
+  }
+  .search__bar{
+    display: flex;
+    margin-right:15px;
+    input{
+      width:0;
+      transition: width 2s;
+      border:none;
+      color:$white;
+      background-color: $brand--color;
+      &::placeholder{
+        color: $white;
+      }
+    }
+    .fa-search{
+      order:2;
+      &:hover ~ input{
+        width:200px;
+        border-bottom:1px solid $white;
+      }
+    }
   }
 }
 
@@ -190,7 +211,7 @@ footer{
 }
 .cart__empty{
   margin-top: 20px;
-  color: $error;
+  color: $error
 }
 
 @media (min-width: 768px) { 
