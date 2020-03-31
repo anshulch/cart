@@ -146,6 +146,25 @@ const reducer = (state = initialState, action) => {
             totalDiscount: state.totalDiscount - (action.elemPrice*action.elemDiscount/100)*action.elemQty
         }
     }
+    if(action.type === "LOW_TO_HIGH"){
+        // console.log('called');
+        return{
+            ...state,
+            products: [...state.products].sort((a, b) => parseFloat(a.price) - parseFloat(b.price))    
+        }
+    }
+    if(action.type === "HIGH_TO_LOW"){
+        return{
+            ...state,
+            products: [...state.products].sort((a, b) => parseFloat(b.price) - parseFloat(a.price))    
+        }
+    }
+    if(action.type === "SORT_BY_DISCOUNT"){
+        return{
+            ...state,
+            products: [...state.products].sort((a, b) => parseFloat(b.discount) - parseFloat(a.discount))    
+        }
+    }
     return state;
 }
 export default reducer;

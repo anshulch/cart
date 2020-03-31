@@ -18,3 +18,21 @@ export const fetchItems = () => {
             })
     }
 }
+
+export const lowToHigh = () => {
+return(dispatch) => {
+    dispatch({type:"LOW_TO_HIGH"})
+    }
+}
+
+export const highToLow = () => {
+return(dispatch) => {
+    dispatch({type:"HIGH_TO_LOW"})
+    }
+}
+
+export const sortByDiscount = () => {
+return(dispatch) => {
+    dispatch({type:"SORT_BY_DISCOUNT"})
+    }
+}
