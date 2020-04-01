@@ -115,7 +115,42 @@ header{
   .filer__details{
     position: absolute;
     margin-top: 20px;
+    width:165px;
   }
+
+  .price-field input[type=range] {
+  position: absolute;
+  background-color: $brand--color;
+  left:0;
+  width: 160px;
+  height: 2px; 
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  pointer-events: none;
+  -webkit-appearance: none;
+}
+
+.price-field input[type=range]:active,
+.price-field input[type=range]:focus {
+  outline: 0;
+}
+
+
+.price-field input[type=range]::-webkit-slider-thumb { 
+  position: relative;
+  -webkit-appearance: none;
+  outline: 0;
+  border-radius: 50%;
+  border:1px solid $grey; 
+  height: 15px;
+  width: 15px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 100;
+}
   .only--desk--display{
     display:none
   }
@@ -151,7 +186,7 @@ header{
       position: relative;
       top:-18px;
       color:#444
-    } 
+    }
   }
   
   .slider::-webkit-slider-thumb {

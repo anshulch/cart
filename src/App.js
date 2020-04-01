@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
@@ -19,12 +19,19 @@ function App() {
   const total = useSelector(state => state.total);
   const totalDiscount = useSelector(state => state.totalDiscount);
   const dispatch = useDispatch();
-  // const
+  const [state, setState] = useState("a")
+
+  const handleActive = () => {
+    setState("c")
+  }
 
   return (
     <BrowserRouter>
       <div className="App">
         <Header count={count} />
+        {/* <div onClick={() => handleActive()}>{state}</div> */}
+        {/* <div>b</div> */}
+
         <Route path="/cart" exact>
           <Filter 
             lowToHigh = {() => dispatch(lowToHigh())}

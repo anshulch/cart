@@ -13,8 +13,12 @@ const filter = (props) => {
                 <span onClick={props.sortByDiscount} className="price__filter only--desk--display">Price -- Discount</span>
             </li>
             <li><FontAwesomeIcon className="display--none" icon={faFilter} /><span className="filter__label font--bold">Filter</span>
-            <div className="filer__details text--center only--desk--display">
-                <input className="slider" type="range" min="1" max="100" value="50" readOnly/>
+            {/* <div className="filer__details text--center only--desk--display"> */}
+            <div className="filer__details text--center">
+                <div class="price-field">
+                    <input type="range"  min="100" max="500" defaultValue="100" id="lower" />
+                    <input type="range" min="100" max="500" defaultValue="500" id="upper" />
+                </div>
                 <div className="price--label">Price</div>
                 <button className="btn__apply">Apply</button>
             </div>
