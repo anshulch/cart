@@ -36,3 +36,9 @@ return(dispatch) => {
     dispatch({type:"SORT_BY_DISCOUNT"})
     }
 }
+
+export const rangeFilter = (lowVal, upVal) => {
+    return(dispatch) => {
+        dispatch({type: "RANGE_FILTER", lowerVal: lowVal, upperVal: upVal})
+    }
+}

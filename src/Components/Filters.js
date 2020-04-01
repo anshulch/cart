@@ -15,12 +15,12 @@ const filter = (props) => {
             <li><FontAwesomeIcon className="display--none" icon={faFilter} /><span className="filter__label font--bold">Filter</span>
             {/* <div className="filer__details text--center only--desk--display"> */}
             <div className="filer__details text--center">
-                <div class="price-field">
-                    <input type="range"  min="100" max="500" defaultValue="100" id="lower" />
-                    <input type="range" min="100" max="500" defaultValue="500" id="upper" />
+                <div className="price-field">
+                    <input onInput={props.lowStateHandler} type="range"  min="100" max="1000" defaultValue="100" id="lower" />
+                    <input onInput={props.upStateHandler} type="range" min="100" max="1000" defaultValue="1000" id="upper" />
                 </div>
                 <div className="price--label">Price</div>
-                <button className="btn__apply">Apply</button>
+                <button className="btn__apply" onClick={props.rangeFilter}>Apply</button>
             </div>
             </li>
         </ul>

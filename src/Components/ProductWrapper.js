@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchItems } from '../actions/actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBug } from '@fortawesome/free-solid-svg-icons';
+import { faBug, faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 class ProductWrapper extends Component{
     componentDidMount(){
@@ -32,6 +32,11 @@ class ProductWrapper extends Component{
                 {
                     this.props.error 
                     ? <div className="error__msg text--center"><div></div><FontAwesomeIcon className="fa--white" icon={faBug} /><div></div>{this.props.error}</div>
+                    : product 
+                }
+                {
+                    this.props.products.length === 0
+                    ? <div className="error__msg text--center"><div></div><FontAwesomeIcon className="fa--white" icon={faExclamation} /><div></div>No Product to display..</div>
                     : product 
                 }
             </section>

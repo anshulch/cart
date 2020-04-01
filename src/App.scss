@@ -114,7 +114,7 @@ header{
   }
   .filer__details{
     position: absolute;
-    margin-top: 20px;
+    margin-top: 30px;
     width:165px;
   }
 
@@ -170,22 +170,20 @@ header{
       background-color: $brand--color-secondry;
     }
   }
-  .slider {
-    -webkit-appearance: none;
-    height: 1px;
-    background: $brand--color;
-    // opacity: 0.7;
-    outline: none;
+  .price-field {
+    &:before, &:after{
+      position: absolute;
+      top:-20px;
+      color:#444;
+      font-size: 11px;
+    }
     &:before{
       content:"₹100";
+      left:0;
     }
     &:after{
       content:"₹1000";
-    }
-    &:before, &:after{
-      position: relative;
-      top:-18px;
-      color:#444
+      right:0
     }
   }
   
@@ -245,7 +243,7 @@ header{
   .error__msg{
     margin-top: 20px;
     flex-basis: 100%;
-    .fa-bug{ color: $error; font-size: 24px;}
+    .fa-bug, .fa-exclamation{ color: $error; font-size: 24px;}
   }
 }
 .offers{
@@ -385,7 +383,7 @@ footer{
       padding-bottom: 2px;
       cursor: pointer;
       &.active{
-        border-bottom-color: $brand--color;
+        // border-bottom-color: $brand--color;
       }
       &:hover{
         border-color: $brand--color - 80%;

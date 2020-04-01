@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
-import { lowToHigh, highToLow, sortByDiscount  } from "./actions/actions";
+import { lowToHigh, highToLow, sortByDiscount, rangeFilter  } from "./actions/actions";
 
 import "./App.scss";
 
@@ -19,12 +19,17 @@ function App() {
   const total = useSelector(state => state.total);
   const totalDiscount = useSelector(state => state.totalDiscount);
   const dispatch = useDispatch();
-  const [state, setState] = useState("a")
+  const [lowstate, setlowState] = useState(100);
+  const [upperstate, setupperState] = useState(1000);
 
-  const handleActive = () => {
-    setState("c")
+  const lowRange = (e) => {
+    console.log(e.target.value)
+    setlowState(e.target.value)
   }
-
+  const upperRange = (e) => {
+    console.log(e.target.value)
+    setupperState(e.target.value)
+  }
   return (
     <BrowserRouter>
       <div className="App">
@@ -37,6 +42,9 @@ function App() {
             lowToHigh = {() => dispatch(lowToHigh())}
             highToLow = {() => dispatch(highToLow())}
             sortByDiscount = {() => dispatch(sortByDiscount())}
+            rangeFilter = {() => dispatch(rangeFilter(lowstate, upperstate))}
+            lowStateHandler = {lowRange}
+            upStateHandler = {upperRange}
           />
         </Route>
         <Route path="/cart" exact component={ProductWrapper} />

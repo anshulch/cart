@@ -65,6 +65,7 @@ const initialState = {
     //       "img_url": "http://lorempixel.com/500/600/technics/"
     //     }
     //   ]
+    initProduct:[],
     products:[],
     selectedItems:[],
     error: null,
@@ -76,6 +77,7 @@ const reducer = (state = initialState, action) => {
     if(action.type === "GET_DATAA" && state.selectedItems.length === 0){
         return{
             ...state,
+            initProduct:action.payload.filter(el => el != null),
             products:action.payload.filter(el => el != null)
         }
     }
@@ -163,6 +165,14 @@ const reducer = (state = initialState, action) => {
         return{
             ...state,
             products: [...state.products].sort((a, b) => parseFloat(b.discount) - parseFloat(a.discount))    
+        }
+    }
+    if(action.type === "RANGE_FILTER"){
+        console.log(action.lowerVal)
+        console.log('range')
+        return{
+            ...state,
+            products: state.initProduct.filter(el => el.price >= action.lowerVal && el.price <= action.upperVal)              
         }
     }
     return state;
